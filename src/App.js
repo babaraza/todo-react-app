@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import InputArea from "./InputArea";
+import List from "./List";
+import Button from "@material-ui/core/Button";
+import { useRecoilState } from "recoil";
+import { listState } from "./atoms";
 
 function App() {
+  const [list, setList] = useRecoilState(listState);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>working on todo list 🔥</h1>
+      <div className="app__body">
+        <InputArea />
+        {list.length > 0 && (
+          <div className="app__bodyListContainer">
+            <List />
+            <div className="app__bodyListContainerResetBtn">
+              <Button
+                className="app__bodyListContainerResetBtn"
+                onClick={() => setList([])}
+              >
+                Clear All Items
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
