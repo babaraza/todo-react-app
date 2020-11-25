@@ -11,6 +11,10 @@ function App() {
   const [list, setList] = useRecoilState(listState);
   const [alert, setAlert] = useRecoilState(alertState);
 
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="standard" {...props} />;
+  }
+
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -40,7 +44,9 @@ function App() {
         autoHideDuration={2000}
         onClose={handleClose}
       >
-        <MuiAlert severity={alert.type}>{alert.msg}</MuiAlert>
+        <Alert onClose={handleClose} severity={alert.type}>
+          {alert.msg}
+        </Alert>
       </Snackbar>
     </div>
   );
