@@ -1,0 +1,23 @@
+.list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s linear;
+  padding: 0 1rem;
+  border-radius: 0.25rem;
+}
+
+.list__item:hover {
+  color: hsl(210, 22%, 49%);
+  background: hsl(210, 36%, 96%);
+}
+.list__item:hover .list__itemTitle {
+  color: hsl(210, 22%, 49%);
+}
+
+.list__itemTitle {
+  color: hsl(209, 61%, 16%);
+  letter-spacing: 2px;
+  transition: all 0.3s linear;
+}
