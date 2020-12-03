@@ -43,7 +43,7 @@ function InputArea() {
     <div className="inputArea">
       <form className="inputArea__form" onSubmit={handleSubmit}>
         <TextField
-          label="Enter todo item"
+          label={edit.editing ? "Edit todo item" : "Enter todo item"}
           variant="filled"
           size="small"
           value={item}

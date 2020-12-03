@@ -27,10 +27,10 @@ function List() {
           <p className="list__itemTitle">{item.title}</p>
           <div className="list__itemButtons">
             <IconButton onClick={() => editItem(item.id)}>
-              <EditIcon style={{ color: "green", fontSize: 16 }} />
+              <EditIcon style={{ color: "#77DD77", fontSize: 16 }} />
             </IconButton>
             <IconButton onClick={() => removeItem(item.id)}>
-              <DeleteIcon style={{ color: "red", fontSize: 16 }} />
+              <DeleteIcon style={{ color: "#ff6961", fontSize: 16 }} />
             </IconButton>
           </div>
         </div>

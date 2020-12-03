@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { listState, alertState } from "./atoms";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
+import { useEffect } from "react";
 
 function App() {
   const [list, setList] = useRecoilState(listState);
@@ -14,6 +15,18 @@ function App() {
   function Alert(props) {
     return <MuiAlert elevation={6} variant="standard" {...props} />;
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("todos")) {
+      setList(JSON.parse(localStorage.getItem("todos")));
+    } else {
+      setList([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(list));
+  }, [list]);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {

@@ -29,5 +29,10 @@ body {
 
 .app__bodyListContainerResetBtn {
   display: grid;
-  align-items: center;
+  place-items: center;
+}
+
+.app__bodyListContainerResetBtn > Button {
+  width: 30%;
+  color: #ff6961;
 }
